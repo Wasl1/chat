@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { createUserDto } from './dto/createUser.dto';
-import { User } from './models/user.model';
+import { User } from './entity/user.entity';
 import { UserService } from './user.service';
 
 @Controller('user')
@@ -8,18 +8,22 @@ export class UserController {
     constructor(private userService: UserService) {}
 
     @Get()
-    getAllUSers(): User[] {
+    getAllUSers(): Promise<User[]> {
         return this.userService.getAllUsers();
     }
 
     @Get('/:id')
-    getUserById(@Param('id') userId: string): User {
+    getUserById(@Param('id') userId: string): Promise<User> {
         return this.userService.getUserById(userId);
     }
 
     @Post()
-    createUser(@Body() payload: createUserDto) {
-        return this.userService.createUser(payload);
+    async createUser(@Body() payload: createUserDto) {
+        const user = await this.userService.createUser(payload);
+        return {
+            message: "User created",
+            value: [user]
+          }
     }
 
     @Delete('/:id')
