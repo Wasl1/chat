@@ -15,7 +15,7 @@
         <div *ngIf="(channels$|async)?.items?.length > 0; else no_channels" class="channels">
           <mat-selection-list [multiple]="false" (selectionChange)="onSelectChannel($event)">
             <mat-list-option *ngFor="let channel of (channels$ | async)?.items" [value]="channel">
-              Name: {{channel.name}} Id: {{channel.id}}
+              {{channel.name}}
               <mat-divider></mat-divider>
             </mat-list-option>
           </mat-selection-list>
@@ -27,7 +27,6 @@
 
       <div class="chatchannel">
         <app-chat-channel [chatChannel]="selectedChannel"></app-chat-channel>
-
       </div>
 
     </div>
