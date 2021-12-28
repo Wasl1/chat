@@ -6,8 +6,8 @@ Slack clone
 4- Cloner le projet git et entrer dans le repertoire server puis installer les packages via la commande: npm install
 5- Entrer dans le repertoire client et installer les packages via la commande: npm install
 6- Pour lancer le server nestjs, entrer dans le repertoire server et lancer la commande: npm run start
-7- Pour lancer angular, entrer dans le repertoire angular et lancer la commande: ng serve
+7- Pour lancer angular, entrer dans le repertoire client et lancer la commande: ng serve
 8- Ouvrir le lien http://localhost:4200/ dans le navigateur
 9- Créer plusierus utilsateurs,
 10- Créer un nouveau channel en cliquant sur Create new channel et y ajouter des utilisateurs
-11- Cliquer sur le channel créé et commencer à chatter 
+11- Cliquer sur le channel créé et commencer à chatter avec les utilisateurs invités
